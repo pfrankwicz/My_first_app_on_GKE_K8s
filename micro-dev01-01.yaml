@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  creationTimestamp: "2022-12-08T23:14:49Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  generateName: micro-dev01-6df95b9-hz5pp-
+  labels:
+    app: micro-dev01
+    pod-template-hash: 6df95b9
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:pod-template-hash: {}
+      f:spec:
+        f:allocateLoadBalancerNodePorts: {}
+        f:externalTrafficPolicy: {}
+        f:internalTrafficPolicy: {}
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: GoogleCloudConsole
+    operation: Update
+    time: "2022-12-08T23:14:48Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .: {}
+          v:"service.kubernetes.io/load-balancer-cleanup": {}
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: kube-controller-manager
+    operation: Update
+    subresource: status
+    time: "2022-12-08T23:15:19Z"
+  name: micro-dev01-6df95b9-hz5pp-zp6jg
+  namespace: default
+  resourceVersion: "1066208"
+  uid: a7f00967-ccf6-403f-9b4f-ABC
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 00.000.0.ABC
+  clusterIPs:
+  - 00.000.0.ABC
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30977
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: micro-dev01
+    pod-template-hash: 6df95b9
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 00.000.000.ABC

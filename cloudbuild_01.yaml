@@ -1,0 +1,14 @@
+// cloud build yaml file 11-08-2022 rev 1
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/PROJECT/us.gcr.io/PROJECT/appengine/app-container-dev110822.@sha256:', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/PROJECT/bkimg01us.gcr.io/PROJECT/appengine/app-container-dev110822.20221108t234357@sha256:']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'bkapp-cldrun110822', '--image', 'gcr.io/PROJECT/us.gcr.io/PROJECT/appengine/app-container-dev110822.20221108t234357@sha256:', '--region', 'us-west2']
+images:
+- gcr.io/PROJECT/us.gcr.io/PROJECT/appengine/app-container-dev110822.20221108t234357@sha256:

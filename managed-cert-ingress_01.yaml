@@ -1,0 +1,89 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.gcp.kubernetes.io/pre-shared-cert: mcrt-94be8e3c-c770-4d03-9df5-abc
+    ingress.kubernetes.io/backends: '{"k8s1-6d0394fc-default-nodeport-service121822-80-abc":"HEALTHY"}'
+    ingress.kubernetes.io/forwarding-rule: k8s2-fr-3ve1xc0p-default-managed-cert-ingress-121822-abc
+    ingress.kubernetes.io/https-forwarding-rule: k8s2-fs-3ve1xc0p-default-managed-cert-ingress-121822-abc
+    ingress.kubernetes.io/https-target-proxy: k8s2-ts-3ve1xc0p-default-managed-cert-ingress-121822-abc
+    ingress.kubernetes.io/ssl-cert: mcrt-94be8e3c-c770-4d03-9df5-abc
+    ingress.kubernetes.io/target-proxy: k8s2-tp-3ve1xc0p-default-managed-cert-ingress-121822-abc
+    ingress.kubernetes.io/url-map: k8s2-um-3ve1xc0p-default-managed-cert-ingress-121822-abc
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"kubernetes.io/ingress.class":"gce","kubernetes.io/ingress.global-static-ip-name":"IP_NAME-121722","networking.gke.io/managed-certificates":"managed-cert"},"name":"managed-cert-ingress-121822","namespace":"default"},"spec":{"defaultBackend":{"service":{"name":"nodeport-service121822","port":{"number":80}}}}}
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.global-static-ip-name: IS_NAME-121722
+    networking.gke.io/managed-certificates: managed-cert
+  creationTimestamp: "2022-12-18T16:23:20Z"
+  finalizers:
+  - networking.gke.io/ingress-finalizer-V2
+  generation: 1
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:kubernetes.io/ingress.class: {}
+          f:kubernetes.io/ingress.global-static-ip-name: {}
+          f:networking.gke.io/managed-certificates: {}
+      f:spec:
+        f:defaultBackend:
+          .: {}
+          f:service:
+            .: {}
+            f:name: {}
+            f:port:
+              .: {}
+              f:number: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2022-12-18T16:23:20Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:ingress.gcp.kubernetes.io/pre-shared-cert: {}
+    manager: managed-certificate-controller
+    operation: Update
+    time: "2022-12-19T10:23:40Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:ingress.kubernetes.io/backends: {}
+          f:ingress.kubernetes.io/forwarding-rule: {}
+          f:ingress.kubernetes.io/https-forwarding-rule: {}
+          f:ingress.kubernetes.io/https-target-proxy: {}
+          f:ingress.kubernetes.io/ssl-cert: {}
+          f:ingress.kubernetes.io/target-proxy: {}
+          f:ingress.kubernetes.io/url-map: {}
+        f:finalizers:
+          .: {}
+          v:"networking.gke.io/ingress-finalizer-V2": {}
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: glbc
+    operation: Update
+    subresource: status
+    time: "2022-12-19T10:23:55Z"
+  name: managed-cert-ingress-121822
+  namespace: default
+  resourceVersion: "43198270"
+  uid: cebc13a1-8ab7-42cc-b866-abc
+spec:
+  defaultBackend:
+    service:
+      name: nodeport-service121822
+      port:
+        number: 80
+status:
+  loadBalancer:
+    ingress:
+    - ip: 00.000.000.01[]

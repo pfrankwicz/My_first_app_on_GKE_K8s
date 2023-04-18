@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+    cloud.google.com/neg-status: '{"network_endpoint_groups":{"80":"k8s1-6d0394fc-default-nodeport-service121822-80-ABC"},"zones":["us-west1-a"]}'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"nodeport-service121822","namespace":"default"},"spec":{"ports":[{"port":80,"protocol":"TCP","targetPort":8080}],"selector":{"app":"micro-dev01"},"type":"NodePort"}}
+  creationTimestamp: "2022-12-18T16:20:21Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:externalTrafficPolicy: {}
+        f:internalTrafficPolicy: {}
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2022-12-18T16:20:21Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:cloud.google.com/neg-status: {}
+    manager: glbc
+    operation: Update
+    subresource: status
+    time: "2022-12-18T16:23:20Z"
+  name: nodeport-service121822
+  namespace: default
+  resourceVersion: "8044557"
+  uid: bfc5ca3c-2680-4c47-bd21-ABC
+spec:
+  clusterIP: 10.100.14.ABC
+  clusterIPs:
+  - 10.100.14.ABC
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30744
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: micro-dev01
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
